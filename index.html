@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="GeoPattern" style="width: 100vw; height: 100vh;"></div>
+</body>
+<script type="module">
+import { GeoPattern } from "./src/index.js";
+
+document.querySelector('#GeoPattern').style.backgroundImage =  GeoPattern.generate(`${Math.random()}`, {
+  color: '#a1a211'
+}).toDataUrl()
+</script>
+</html>
