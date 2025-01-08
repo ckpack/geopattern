@@ -11,8 +11,6 @@
 <script type="module">
 import { GeoPattern } from "./src/index.js";
 
-document.querySelector('#GeoPattern').style.backgroundImage =  GeoPattern.generate(`${Math.random()}`, {
-  color: '#a1a211'
-}).toDataUrl()
+document.querySelector('#GeoPattern').style.backgroundImage =  GeoPattern.generate(`${Math.random()}`).toDataUrl()
 </script>
 </html>

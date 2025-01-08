@@ -1,4 +1,4 @@
-import { Pattern } from "./pattern.js";
+import { Pattern } from './pattern.js'
 
 /*
  * Normalize arguments, if not given, to:
@@ -6,24 +6,24 @@ import { Pattern } from "./pattern.js";
  * options: {}
  */
 function optArgs(cb) {
-	return function (string, options) {
-		if (typeof string === 'object') {
-			options = string;
-			string = null;
-		}
-		if (string === null || string === undefined) {
-			string = (new Date()).toString();
-		}
-		if (!options) {
-			options = {};
-		}
+  return function (string, options) {
+    if (typeof string === 'object') {
+      options = string
+      string = null
+    }
+    if (string === null || string === undefined) {
+      string = (new Date()).toString()
+    }
+    if (!options) {
+      options = {}
+    }
 
-		return cb.call(this, string, options);
-	};
+    return cb.call(this, string, options)
+  }
 }
 
 export const GeoPattern = {
-	generate: optArgs(function (string, options) {
-		return new Pattern(string, options);
-	})
-};
+  generate: optArgs((string, options) => {
+    return new Pattern(string, options)
+  }),
+}

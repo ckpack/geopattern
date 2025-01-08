@@ -5,7 +5,7 @@ export default defineConfig([
     input: 'src/index.js',
     output: {
       format: 'esm',
-      file: 'dist/index.js'
+      file: 'dist/index.js',
     },
   },
   {
@@ -13,7 +13,7 @@ export default defineConfig([
     output: {
       minify: true,
       format: 'esm',
-      file: 'dist/index.min.js'
+      file: 'dist/index.min.js',
     },
   },
 ])
