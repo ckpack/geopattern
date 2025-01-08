@@ -1,16 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>@ckpack/geopattern</title>
 </head>
+<style>
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #geo-pattern {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #geo-pattern-input {
+    padding: .5em 1em;
+  }
+</style>
+
 <body>
-  <div id="GeoPattern" style="width: 100vw; height: 100vh;"></div>
+  <div id="geo-pattern">
+    <input id="geo-pattern-input" onchange="handlerChange" />
+  </div>
 </body>
 <script type="module">
-import { GeoPattern } from "./src/index.js";
+  import { GeoPattern } from "https://cdn.jsdelivr.net/npm/@ckpack/geopattern@0.0.2/dist/index.min.js";
 
-document.querySelector('#GeoPattern').style.backgroundImage =  GeoPattern.generate(`${Math.random()}`).toDataUrl()
+  const BG = document.querySelector('#geo-pattern')
+  function makePattern(value = '') {
+    BG.style.backgroundImage = GeoPattern.generate(value).toDataUrl()
+  }
+
+  document.querySelector('#geo-pattern-input').addEventListener('input', (e) => {
+    makePattern(e.target.value)
+  })
+  makePattern()
 </script>
+
 </html>

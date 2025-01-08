@@ -56,11 +56,9 @@ SVG.prototype.toString = function () {
 }
 
 SVG.prototype.rect = function (x, y, width, height, args) {
-  // Accept array first argument
-  const self = this
   if (Array.isArray(x)) {
     x.forEach((a) => {
-      self.rect(a.concat(args))
+      this.rect(...[].concat(a, args))
     })
     return this
   }

@@ -41,7 +41,7 @@ const OPACITY_MAX = 0.15
  * @param {number} len - Length of substring. Defaults to 1.
  */
 function hexVal(hash, index, len) {
-  return Number.parseInt(hash.substring(index, len || 1), 16)
+  return Number.parseInt(hash.substring(index, index + (len || 1)), 16)
 }
 
 /*
